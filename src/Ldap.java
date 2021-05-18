@@ -6,15 +6,41 @@
 
 import java.util.*;
 
+
+class Uporabnik {
+   String upIme;
+   String upGeslo;
+
+   public Uporabnik(String upIme, String upGeslo) {
+      this.upIme = upIme;
+      this.upGeslo = upGeslo;
+   }
+}
+
+
 /** @pdOid 686ff064-81c0-4264-a2c9-0c99fb5e3b6b */
 public class Ldap {
    /** @pdOid 41189b94-8c4f-4895-9fc1-558a96c559bd */
-   private String seznamPrijavljenih;
+   private ArrayList<Uporabnik> seznamPrijavljenih = new ArrayList<Uporabnik>();
+
+   private void init (){
+      seznamPrijavljenih.add(new Uporabnik("Asfaltina","geslo123"));
+      seznamPrijavljenih.add(new Uporabnik("teo","123"));
+      seznamPrijavljenih.add(new Uporabnik("sergej","123"));
+   }
    
    /** @pdOid d78c46f4-24be-48e6-8ccc-fa9fdc6989e7 */
-   public int zahtevaZaAvtentikacijo() {
+   public int zahtevaZaAvtentikacijo(String uporabniskoIme, String geslo) {
       // TODO: implement
+      init();
+      try {
+         seznamPrijavljenih.contains(new Uporabnik(uporabniskoIme,geslo));
+         return 1;
+      }catch (Exception e){
+         System.out.println("Uporabniško ime ali geslo ne obstaja");
+      }
       return 0;
+
    }
 
 }

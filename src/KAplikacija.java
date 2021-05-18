@@ -26,7 +26,7 @@ public class KAplikacija {
    /** @pdOid 136de252-1375-4dc7-8bd7-b3dc3ab882cd */
    public int prijavaVSistem() {
       // TODO: implement
-      return 5;
+      return 0;
    }
    
    /** @pdOid a4d24478-b24f-4a2c-b193-19e29ac7188c */
