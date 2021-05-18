@@ -21,6 +21,7 @@ public class loginController implements Initializable {
     public void loginCB(ActionEvent actionEvent) {
         Main m = new Main();
 
+        /*
         try {
             if (Ldap.zahtevaZaAvtentikacijo(userNameField.getText(), passwordField.getText()) == 1) {
                 //TODO: Implement
@@ -30,6 +31,9 @@ public class loginController implements Initializable {
         } catch (Exception e) {
             passwordStatusLabel.setText("Napaka v sistemu");
         }
+        */
+        passwordStatusLabel.setText("Uporabniško ime ali geslo je napačno.");
+
     }
 
     public void izhodCB(ActionEvent actionEvent) {
