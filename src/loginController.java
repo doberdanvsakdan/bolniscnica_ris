@@ -1,12 +1,8 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.ResourceBundle;
 
 public class loginController implements Initializable {
@@ -23,8 +19,17 @@ public class loginController implements Initializable {
     }
 
     public void loginCB(ActionEvent actionEvent) {
-        userNameField.getText();
-        passwordField.getText();
+        Main m = new Main();
+
+        try {
+            if (Ldap.zahtevaZaAvtentikacijo(userNameField.getText(), passwordField.getText()) == 1) {
+                //TODO: Implement
+                m.changeScene("afterLogin.fmxl");
+            } else
+                passwordStatusLabel.setText("Uporabniško ime ali geslo je napačno.");
+        } catch (Exception e) {
+            passwordStatusLabel.setText("Napaka v sistemu");
+        }
     }
 
     public void izhodCB(ActionEvent actionEvent) {

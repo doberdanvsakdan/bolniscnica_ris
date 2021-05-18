@@ -17,7 +17,7 @@
    <center>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" layoutX="100.0" layoutY="115.0">
+            <HBox alignment="TOP_CENTER" layoutX="100.0" layoutY="115.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="200.0">
                      <image>
