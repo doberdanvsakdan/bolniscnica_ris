@@ -26,11 +26,12 @@ public class loginController implements Initializable {
             System.out.println(userNameField.getText() + "; " + passwordField.getText());
             if (ldap.zahtevaZaAvtentikacijo(userNameField.getText(), passwordField.getText()) == 1) {
                 System.out.println("Prijava uspešna");
-                m.changeScene("afterLogin.fmxl");
+                m.changeScene("afterLogin.fxml");
             } else
                 passwordStatusLabel.setText("Uporabniško ime ali geslo je napačno.");
         } catch (Exception e) {
             passwordStatusLabel.setText("Napaka v sistemu");
+            System.out.println(e.getMessage());
         }
 
     }

@@ -1,0 +1,13 @@
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, .5);
+    -fx-border-color: #4ec1b5;
+}
+
+.text-area {
+    -fx-background-color: rgba(255, 255, 255, .7);
+    -fx-border-color: #4ec1b5;
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
