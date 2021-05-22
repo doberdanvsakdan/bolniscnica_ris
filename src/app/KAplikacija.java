@@ -60,6 +60,14 @@ public class KAplikacija {
       return null;
    }
 
+   public Terapija nastaviTerapijo(int idTerapije){
+      for (int i = 0; i < terapije.size(); i++) {
+         if (terapije.get(i).getIdTerapije() == idTerapije)
+            return terapije.get(i);
+      }
+      return null;
+   }
+
 
    public void registracija(String ime, String priimek, long emso, String naslov, long tel){
       opisPacientov.add(new OpisPacienta(ime, priimek, emso, naslov, tel));

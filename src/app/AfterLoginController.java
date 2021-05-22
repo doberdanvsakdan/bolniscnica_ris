@@ -6,9 +6,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+
 import java.util.ResourceBundle;
 
 public class AfterLoginController implements Initializable {
@@ -27,25 +25,19 @@ public class AfterLoginController implements Initializable {
     public MenuItem logoutCB;
     public MenuItem exitCB;
     private Terapija terapija;
+    private int idTerapije;
 
     private final KAplikacija controller = new KAplikacija();
-    private ArrayList<OpisPacienta> pacienti = new ArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        lastNameField.setText("");
-        emsoField.setText("");
-        addressField.setText("");
-        placeField.setText("");
-        mobileField.setText("");
 
         for (int i = 0; i < controller.opisPacientov.size(); i++) {
             OpisPacienta pacient = controller.opisPacientov.get(i);
             patientsCombo.getItems().add(pacient.getName() + " " + pacient.getPriimek());
         }
-
     }
+
 
     public void prikaziKartotekoCB(ActionEvent actionEvent) throws Exception {
 
@@ -61,7 +53,7 @@ public class AfterLoginController implements Initializable {
             placeField.setText(naslov[1].strip());
             mobileField.setText(String.valueOf(pacient.getTel()));
 
-            int idTerapije = controller.dobiKartoteko(pacient.getIdPacienta()).getIdTerapije();
+            idTerapije = controller.dobiKartoteko(pacient.getIdPacienta()).getIdTerapije();
             terapija = controller.dobiTerapijo(idTerapije);
 
             String tezave = terapija.getOpisTezave(idTerapije) + "\n" + terapija.getPredpisanoZdravljenje(idTerapije);
@@ -85,6 +77,13 @@ public class AfterLoginController implements Initializable {
 
     public void vnosTerapijeZOdpustnico(ActionEvent actionEvent) {
 
+        System.out.println("asd");
+        terapija.setOpisTezave("");
+        terapija.setPredpisanoZdravljenje("");
+
+        terapija.setOpisTezave(healthArea.getText());
+
+        System.out.println(healthArea.getText());
     }
 
     public void exitCB(ActionEvent actionEvent) {
