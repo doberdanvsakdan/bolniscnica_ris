@@ -32,23 +32,18 @@ public class AfterLoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Iterator<OpisPacienta> iter = controller.getPacienti();
-        //pacienti = controller.getPacienti2();
-        //nameField.setText("");
+
         lastNameField.setText("");
         emsoField.setText("");
         addressField.setText("");
         placeField.setText("");
         mobileField.setText("");
 
-
-
-        while (iter.hasNext()) {
-            //pacienti.add(iter.next());
-            OpisPacienta pacient = iter.next();
+        for (int i = 0; i < controller.opisPacientov.size(); i++) {
+            OpisPacienta pacient = controller.opisPacientov.get(i);
             patientsCombo.getItems().add(pacient.getName() + " " + pacient.getPriimek());
         }
-        patientsCombo.getItems().addAll();
+
 
     }
 
@@ -56,10 +51,7 @@ public class AfterLoginController implements Initializable {
 
         try {
 
-            //KartotekaPacienta kart = controller.dostopDoKartoteke(patientsCombo.getSelectionModel().getSelectedItem());
-            //System.out.println(kart.getIdPacienta());
             String priimek = patientsCombo.getSelectionModel().getSelectedItem().split(" ")[1];
-            System.out.println(priimek);
             OpisPacienta pacient = controller.getPacient(priimek);
 
             nameField.setText(pacient.getName());
@@ -69,6 +61,13 @@ public class AfterLoginController implements Initializable {
             addressField.setText(naslov[0].strip());
             placeField.setText(naslov[1].strip());
             mobileField.setText(String.valueOf(pacient.getTel()));
+
+            System.out.println(controller.opisPacientov.get(0).getPriimek());
+
+
+            healthArea.setText("test");
+
+            System.out.println(pacient.getIdPacienta());
         } catch (Exception e){
             System.out.println(e);
         }

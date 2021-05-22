@@ -16,9 +16,14 @@ public class Terapija {
    private String opisTezave;
    /** @pdOid 3e110ea1-4b5d-4c6c-8e82-be9ebd680363 */
    private String predpisanoZdravljenje;
+   private ArrayList<Terapija> terapije;
+
+   public Terapija(){
+      terapije = new ArrayList<>();
+   }
    
    /** @pdOid eb216218-96c8-4ce9-8530-fbe42dadc6d2 */
-   public int zapisTerapije() {
+   public int zapisTerapije(int idPacienta, String opis) {
       // TODO: implement
       return 0;
    }

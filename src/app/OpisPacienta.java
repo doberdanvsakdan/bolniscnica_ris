@@ -23,11 +23,11 @@ public class OpisPacienta {
    /** @pdOid 23aff2bd-5568-4e4b-be0e-73c494390eaf */
    private int stZzzs;
    /** @pdOid 65d15532-2f5b-4e5f-9e38-bab18a1c6dd2 */
-   private int idPacienta = 0;
-   private int stPacientov = 0;
+   private int idPacienta;
+   private static int stPacientov = 0;
 
    public OpisPacienta(String ime, String priimek, long emso, String naslov, long tel) {
-      this.idPacienta++;
+      this.idPacienta = stPacientov;
       this.ime = ime;
       this.priimek = priimek;
       this.emso = emso;

@@ -12,7 +12,7 @@ public class KAplikacija {
    /** @pdRoleInfo migr=no name=Ldap assc=association4 mult=1..1 */
    public Ldap ldap;
    /** @pdRoleInfo migr=no name=OpisPacienta assc=association3 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection<OpisPacienta> opisPacientov;
+   public ArrayList<OpisPacienta> opisPacientov;
    /** @pdRoleInfo migr=no name=Terapija assc=association6 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Terapija> terapija;
    /** @pdRoleInfo migr=no name=IzdajaRacuna assc=zahtevekZaIzdajoRacuna coll=java.util.Collection impl=java.util.HashSet mult=0..* */
@@ -101,22 +101,18 @@ public class KAplikacija {
    /** @pdGenerated default getter */
    public java.util.Collection<OpisPacienta> getOpisPacienta() {
       if (opisPacientov == null)
-         opisPacientov = new java.util.HashSet<OpisPacienta>();
+         opisPacientov = new java.util.ArrayList<OpisPacienta>();
       return opisPacientov;
    }
    
    /** @pdGenerated default iterator getter */
    public java.util.Iterator<OpisPacienta> getPacienti() {
       if (opisPacientov == null)
-         opisPacientov = new java.util.HashSet<OpisPacienta>();
+         opisPacientov = new java.util.ArrayList<OpisPacienta>();
       return opisPacientov.iterator();
    }
 
-   public ArrayList getPacienti2() {
-      if (opisPacientov == null)
-         opisPacientov = new java.util.HashSet<OpisPacienta>();
-      return (ArrayList) opisPacientov;
-   }
+
    
    /** @pdGenerated default setter
      * @param newOpisPacienta */
@@ -132,7 +128,7 @@ public class KAplikacija {
       if (newOpisPacienta == null)
          return;
       if (this.opisPacientov == null)
-         this.opisPacientov = new java.util.HashSet();
+         this.opisPacientov = new java.util.ArrayList<>();
       if (!this.opisPacientov.contains(newOpisPacienta))
          this.opisPacientov.add(newOpisPacienta);
    }
