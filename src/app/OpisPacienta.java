@@ -13,18 +13,26 @@ public class OpisPacienta {
    /** @pdOid 31d1af5f-08d1-4327-8dda-610a80b34ee1 */
    private String priimek;
    /** @pdOid 8d3aaeb4-9cf2-41bd-8b4b-04136badfb8c */
-   private int emso;
+   private long emso;
    /** @pdOid 028c48a4-40de-4035-90d9-ed4bf047b564 */
    private String naslov;
    /** @pdOid 444fc79e-c2ec-47f1-ad23-66a226860686 */
    private Date datumRojstva;
    /** @pdOid 271b667f-133b-44be-9ba1-bc26daa64395 */
-   private int tel;
+   private long tel;
    /** @pdOid 23aff2bd-5568-4e4b-be0e-73c494390eaf */
    private int stZzzs;
    /** @pdOid 65d15532-2f5b-4e5f-9e38-bab18a1c6dd2 */
    private int idPacienta;
-   
+
+   public OpisPacienta(String ime, String priimek, long emso, String naslov, long tel) {
+      this.ime = ime;
+      this.priimek = priimek;
+      this.emso = emso;
+      this.naslov = naslov;
+      this.tel = tel;
+   }
+
    /** @pdOid 0a94d17b-53f1-4679-88b4-3d2c896ca29b */
    public int zahtevaZaKartoteko() {
       // TODO: implement
@@ -37,4 +45,7 @@ public class OpisPacienta {
       return 0;
    }
 
+   public String getName() {
+      return this.ime + " " + this.priimek;
+   }
 }

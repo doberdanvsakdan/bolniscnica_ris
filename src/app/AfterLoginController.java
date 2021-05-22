@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class AfterLoginController implements Initializable {
@@ -24,14 +25,19 @@ public class AfterLoginController implements Initializable {
     public MenuItem logoutCB;
     public MenuItem exitCB;
 
+    private final KAplikacija controller = new KAplikacija();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //patientsCombo.getItems().addAll();
+        Iterator<OpisPacienta> iter = controller.getIteratorOpisPacienta();
+        while (iter.hasNext()) {
+            patientsCombo.getItems().add(iter.next().getName());
+        }
+        patientsCombo.getItems().addAll("Albert", "Bertoncelj", "Ciril");
     }
 
     public void prikaziKartotekoCB(ActionEvent actionEvent) {
-        KAplikacija controller = new KAplikacija();
-        controller.dostopDoKartoteke(patientsCombo.getSelectionModel().getSelectedItem());
+        KartotekaPacienta kart = controller.dostopDoKartoteke(patientsCombo.getSelectionModel().getSelectedItem());
     }
 
     public void logoutCB(ActionEvent actionEvent) throws IOException {

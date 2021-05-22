@@ -12,28 +12,35 @@ public class KAplikacija {
    /** @pdRoleInfo migr=no name=Ldap assc=association4 mult=1..1 */
    public Ldap ldap;
    /** @pdRoleInfo migr=no name=OpisPacienta assc=association3 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection opisPacienta;
+   public java.util.Collection<OpisPacienta> opisPacienta;
    /** @pdRoleInfo migr=no name=Terapija assc=association6 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection terapija;
+   public java.util.Collection<Terapija> terapija;
    /** @pdRoleInfo migr=no name=IzdajaRacuna assc=zahtevekZaIzdajoRacuna coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection izdajaRacuna;
+   public java.util.Collection<IzdajaRacuna> izdajaRacuna;
    /** @pdRoleInfo migr=no name=CiscenjeSob assc=association8 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection ciscenjeSob;
+   public java.util.Collection<CiscenjeSob> ciscenjeSob;
    /** @pdRoleInfo migr=no name=PogrebnaSluzba assc=association9 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection pogrebnaSluzba;
+   public java.util.Collection<PogrebnaSluzba> pogrebnaSluzba;
    /** @pdRoleInfo migr=no name=Arhiv assc=association10 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection arhiv;
+   public java.util.Collection<Arhiv> arhiv;
+
+   public KAplikacija() {
+      opisPacienta = new HashSet<>();
+      opisPacienta.add(new OpisPacienta("Joze", "Stefan", 1204970500, "Slovenska cesta 3, 1000 Ljubljana", 040123456));
+      opisPacienta.add(new OpisPacienta("Marija", "cvetka", 1805971505, "Celovška cesta 88, 1000 Ljubljana", 031234657));
+   }
    
    /** @pdOid 136de252-1375-4dc7-8bd7-b3dc3ab882cd */
-   public int prijavaVSistem() {
+   public int prijavaVSistem(String userName, String pass) {
       // TODO: implement
-      return 0;
+      ldap = new Ldap();
+      return ldap.zahtevaZaAvtentikacijo(userName, pass);
    }
    
    /** @pdOid a4d24478-b24f-4a2c-b193-19e29ac7188c */
-   public int dostopDoKartoteke(String str) {
+   public KartotekaPacienta dostopDoKartoteke(String str) {
       // TODO: implement
-      return 0;
+      return new KartotekaPacienta(1, 1);
    }
    
    /** @pdOid 2a608df2-a386-488c-8e91-4107a7a9def3 */
@@ -68,16 +75,16 @@ public class KAplikacija {
    
    
    /** @pdGenerated default getter */
-   public java.util.Collection getOpisPacienta() {
+   public java.util.Collection<OpisPacienta> getOpisPacienta() {
       if (opisPacienta == null)
-         opisPacienta = new java.util.HashSet();
+         opisPacienta = new java.util.HashSet<OpisPacienta>();
       return opisPacienta;
    }
    
    /** @pdGenerated default iterator getter */
-   public java.util.Iterator getIteratorOpisPacienta() {
+   public java.util.Iterator<OpisPacienta> getIteratorOpisPacienta() {
       if (opisPacienta == null)
-         opisPacienta = new java.util.HashSet();
+         opisPacienta = new java.util.HashSet<OpisPacienta>();
       return opisPacienta.iterator();
    }
    

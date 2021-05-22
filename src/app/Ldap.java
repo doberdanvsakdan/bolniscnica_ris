@@ -37,7 +37,6 @@ public class Ldap {
          System.out.println("Uporabniško ime ali geslo ne obstaja");
       }
       return 0;
-
    }
 
 }

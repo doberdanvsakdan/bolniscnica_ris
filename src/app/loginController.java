@@ -22,11 +22,11 @@ public class loginController implements Initializable {
 
     public void loginCB(ActionEvent actionEvent) {
         Main m = new Main();
-        Ldap ldap = new Ldap();
+        KAplikacija controller = new KAplikacija();
 
         try {
             System.out.println(userNameField.getText() + "; " + passwordField.getText());
-            if (ldap.zahtevaZaAvtentikacijo(userNameField.getText(), passwordField.getText()) == 1) {
+            if (controller.prijavaVSistem(userNameField.getText(), passwordField.getText()) == 1) {
                 System.out.println("Prijava uspešna");
                 m.changeScene("afterLogin.fxml");
             } else
