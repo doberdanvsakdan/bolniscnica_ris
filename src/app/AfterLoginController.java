@@ -1,3 +1,5 @@
+package app;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -7,7 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AfterLoginController implements Initializable {
-    public ComboBox patientsCombo;
+    public ComboBox<String> patientsCombo;
     public Button showBttn;
     public TextField nameField;
     public TextField lastNameField;
@@ -24,10 +26,12 @@ public class AfterLoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //patientsCombo.getItems().addAll();
     }
 
-    public void showDataCB(ActionEvent actionEvent) {
+    public void prikaziKartotekoCB(ActionEvent actionEvent) {
+        KAplikacija controller = new KAplikacija();
+        controller.dostopDoKartoteke(patientsCombo.getSelectionModel().getSelectedItem());
     }
 
     public void logoutCB(ActionEvent actionEvent) throws IOException {
@@ -39,7 +43,7 @@ public class AfterLoginController implements Initializable {
         }
     }
 
-    public void saveCB(ActionEvent actionEvent) {
+    public void vnosTerapijeZOdpustnico(ActionEvent actionEvent) {
     }
 
     public void exitCB(ActionEvent actionEvent) {

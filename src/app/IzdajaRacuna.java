@@ -1,4 +1,4 @@
-/***********************************************************************
+package app; /***********************************************************************
  * Module:  IzdajaRacuna.java
  * Author:  Sergej
  * Purpose: Defines the Class IzdajaRacuna

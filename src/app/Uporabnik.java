@@ -1,3 +1,5 @@
+package app;
+
 public class Uporabnik {
     String upIme;
     String upGeslo;

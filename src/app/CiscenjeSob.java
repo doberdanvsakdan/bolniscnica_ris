@@ -1,4 +1,4 @@
-/***********************************************************************
+package app; /***********************************************************************
  * Module:  CiscenjeSob.java
  * Author:  Sergej
  * Purpose: Defines the Class CiscenjeSob

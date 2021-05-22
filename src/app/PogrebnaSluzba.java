@@ -1,4 +1,4 @@
-/***********************************************************************
+package app; /***********************************************************************
  * Module:  PogrebnaSluzba.java
  * Author:  Sergej
  * Purpose: Defines the Class PogrebnaSluzba

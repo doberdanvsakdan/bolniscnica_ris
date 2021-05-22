@@ -1,3 +1,4 @@
+package app;
 /***********************************************************************
  * Module:  KAplikacija.java
  * Author:  Sergej
@@ -30,7 +31,7 @@ public class KAplikacija {
    }
    
    /** @pdOid a4d24478-b24f-4a2c-b193-19e29ac7188c */
-   public int dostopDoKartoteke() {
+   public int dostopDoKartoteke(String str) {
       // TODO: implement
       return 0;
    }

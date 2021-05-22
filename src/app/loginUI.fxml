@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="430.0" minWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="430.0" minWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.loginController">
    <center>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="200.0">
                      <image>
-                        <Image url="@data/HospitalLogo.png" />
+                        <Image url="@../data/HospitalLogo.png" />
                      </image>
                   </ImageView>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="235.0">

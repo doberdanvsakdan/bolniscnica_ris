@@ -1,4 +1,4 @@
-/***********************************************************************
+package app; /***********************************************************************
  * Module:  KartotekaPacienta.java
  * Author:  Sergej
  * Purpose: Defines the Class KartotekaPacienta
@@ -12,6 +12,11 @@ public class KartotekaPacienta {
    private int idPacienta;
    /** @pdOid 520c2671-fbd7-4275-9c0a-bdbbc26e852c */
    private int idTerapije;
+
+   public KartotekaPacienta(int id, int idTer) {
+      this.idPacienta = id;
+      this.idTerapije = idTer;
+   }
    
    /** @pdOid 590067c2-7c5e-410d-98a4-783cacebb99e */
    public int prikliciKartoteko() {

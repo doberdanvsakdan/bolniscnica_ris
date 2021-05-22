@@ -1,4 +1,4 @@
-/***********************************************************************
+package app; /***********************************************************************
  * Module:  OpisPacienta.java
  * Author:  Sergej
  * Purpose: Defines the Class OpisPacienta

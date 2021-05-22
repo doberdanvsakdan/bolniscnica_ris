@@ -1,3 +1,5 @@
+package app;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    // Add VM options "--module-path /Users/teo/Documents/FRI/2_letnik/UV/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml,javafx.web"
+    // Add VM options "--module-path /Users/teo/Documents/FRI/2_letnik/RIS/bolniscnica_ris/src/data/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml,javafx.web"
     private static Stage stg;
     private static Scene loginScn, afterLoginScn;
 

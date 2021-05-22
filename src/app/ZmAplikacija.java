@@ -1,4 +1,4 @@
-/***********************************************************************
+package app; /***********************************************************************
  * Module:  ZmAplikacija.java
  * Author:  Sergej
  * Purpose: Defines the Class ZmAplikacija
