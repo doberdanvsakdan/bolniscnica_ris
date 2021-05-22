@@ -26,6 +26,7 @@ public class AfterLoginController implements Initializable {
     public MenuItem saveCB;
     public MenuItem logoutCB;
     public MenuItem exitCB;
+    private Terapija terapija;
 
     private final KAplikacija controller = new KAplikacija();
     private ArrayList<OpisPacienta> pacienti = new ArrayList();
@@ -44,13 +45,11 @@ public class AfterLoginController implements Initializable {
             patientsCombo.getItems().add(pacient.getName() + " " + pacient.getPriimek());
         }
 
-
     }
 
     public void prikaziKartotekoCB(ActionEvent actionEvent) throws Exception {
 
         try {
-
             String priimek = patientsCombo.getSelectionModel().getSelectedItem().split(" ")[1];
             OpisPacienta pacient = controller.getPacient(priimek);
 
@@ -62,10 +61,12 @@ public class AfterLoginController implements Initializable {
             placeField.setText(naslov[1].strip());
             mobileField.setText(String.valueOf(pacient.getTel()));
 
-            System.out.println(controller.opisPacientov.get(0).getPriimek());
+            int idTerapije = controller.dobiKartoteko(pacient.getIdPacienta()).getIdTerapije();
+            terapija = controller.dobiTerapijo(idTerapije);
 
+            String tezave = terapija.getOpisTezave(idTerapije) + "\n" + terapija.getPredpisanoZdravljenje(idTerapije);
 
-            healthArea.setText("test");
+            healthArea.setText(tezave);
 
             System.out.println(pacient.getIdPacienta());
         } catch (Exception e){

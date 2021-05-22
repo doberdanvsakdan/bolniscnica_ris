@@ -24,17 +24,53 @@ public class KAplikacija {
    /** @pdRoleInfo migr=no name=Arhiv assc=association10 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Arhiv> arhiv;
    private int stPacientov = 0;
+   private int stTerapij = 0;
+   public ArrayList<Terapija> terapije;
+   public ArrayList<KartotekaPacienta> kartoteke;
+   public KartotekaPacienta kartotekaPacienta;
 
    public KAplikacija() {
       opisPacientov = new ArrayList<>();
+      terapije = new ArrayList<>();
+      kartoteke = new ArrayList<KartotekaPacienta>();
       registracija("Marija", "Cvetka", 1805971505, "Celovška cesta 88, 1000 Ljubljana", 031234657);
       registracija("Joze", "Stefan", 1204970500, "Slovenska cesta 3, 1000 Ljubljana", 040123456);
 
+      vnosTerapijeZOdpustnico(0,0, "to je opis za cvetko", "cvetka preveč pije.");
+      vnosTerapijeZOdpustnico(1,1,"opis težav za Jožeta", "Z Jožetom ni nič narobe. Je zgolj hipohonder.");
+
+      kartoteke.add(new KartotekaPacienta(2,0));
+      kartoteke.add(new KartotekaPacienta(3,1));
+
    }
+
+   public KartotekaPacienta dobiKartoteko(int idPacienta){
+      for (int i = 0; i < kartoteke.size(); i++) {
+         if (kartoteke.get(i).getIdPacienta() == idPacienta)
+            return kartoteke.get(i);
+      }
+      return null;
+   }
+
+   public Terapija dobiTerapijo(int idTerapije){
+      for (int i = 0; i < terapije.size(); i++) {
+         if (terapije.get(i).getIdTerapije() == idTerapije)
+            return terapije.get(i);
+      }
+      return null;
+   }
+
 
    public void registracija(String ime, String priimek, long emso, String naslov, long tel){
       opisPacientov.add(new OpisPacienta(ime, priimek, emso, naslov, tel));
       stPacientov++;
+   }
+
+   /** @pdOid 2a608df2-a386-488c-8e91-4107a7a9def3 */
+   public int vnosTerapijeZOdpustnico(int idTerapije, int idZaposlenega, String opisTezave, String predpisanoZdravljenje) {
+      terapije.add(new Terapija(idTerapije, idZaposlenega, opisTezave, predpisanoZdravljenje));
+      stTerapij++;
+      return 0;
    }
 
    public OpisPacienta getPacient(String priimek) throws Exception {
@@ -67,11 +103,7 @@ public class KAplikacija {
       return new KartotekaPacienta(1, 1);
    }
    
-   /** @pdOid 2a608df2-a386-488c-8e91-4107a7a9def3 */
-   public int vnosTerapijeZOdpustnico() {
-      // TODO: implement
-      return 0;
-   }
+
    
    /** @pdOid 6fb3904f-ea12-4ee5-9bc5-af99c36fbb70 */
    public int posredujKartoteko() {
