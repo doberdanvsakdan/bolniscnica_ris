@@ -15,11 +15,12 @@ public class Ldap {
       seznamPrijavljenih.add(new Uporabnik("Asfaltina","geslo123"));
       seznamPrijavljenih.add(new Uporabnik("teo","123"));
       seznamPrijavljenih.add(new Uporabnik("sergej","123"));
+      seznamPrijavljenih.add(new Uporabnik("",""));
    }
 
    private boolean find(Uporabnik user) {
       for (Uporabnik uporabnik : seznamPrijavljenih) {
-         System.out.println(uporabnik);
+         //System.out.println(uporabnik);
          if (uporabnik.upIme.equals(user.upIme) && uporabnik.upGeslo.equals(user.upGeslo))
             return true;
       }

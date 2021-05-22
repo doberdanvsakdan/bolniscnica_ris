@@ -12,7 +12,7 @@ public class KAplikacija {
    /** @pdRoleInfo migr=no name=Ldap assc=association4 mult=1..1 */
    public Ldap ldap;
    /** @pdRoleInfo migr=no name=OpisPacienta assc=association3 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection<OpisPacienta> opisPacienta;
+   public java.util.Collection<OpisPacienta> opisPacientov;
    /** @pdRoleInfo migr=no name=Terapija assc=association6 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Terapija> terapija;
    /** @pdRoleInfo migr=no name=IzdajaRacuna assc=zahtevekZaIzdajoRacuna coll=java.util.Collection impl=java.util.HashSet mult=0..* */
@@ -23,13 +23,37 @@ public class KAplikacija {
    public java.util.Collection<PogrebnaSluzba> pogrebnaSluzba;
    /** @pdRoleInfo migr=no name=Arhiv assc=association10 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Arhiv> arhiv;
+   private int stPacientov = 0;
 
    public KAplikacija() {
-      opisPacienta = new HashSet<>();
-      opisPacienta.add(new OpisPacienta("Joze", "Stefan", 1204970500, "Slovenska cesta 3, 1000 Ljubljana", 040123456));
-      opisPacienta.add(new OpisPacienta("Marija", "cvetka", 1805971505, "Celovška cesta 88, 1000 Ljubljana", 031234657));
+      opisPacientov = new ArrayList<>();
+      registracija("Marija", "Cvetka", 1805971505, "Celovška cesta 88, 1000 Ljubljana", 031234657);
+      registracija("Joze", "Stefan", 1204970500, "Slovenska cesta 3, 1000 Ljubljana", 040123456);
+
    }
-   
+
+   public void registracija(String ime, String priimek, long emso, String naslov, long tel){
+      opisPacientov.add(new OpisPacienta(ime, priimek, emso, naslov, tel));
+      stPacientov++;
+   }
+
+   public OpisPacienta getPacient(String priimek) throws Exception {
+      OpisPacienta pacient = exists(priimek);
+      if (pacient == null)
+         throw new java.lang.Exception("Pacient ne obstaja");
+      return pacient;
+
+   }
+
+   public OpisPacienta exists(String priimek){
+      for (OpisPacienta pacient:
+              opisPacientov) {
+         if (String.valueOf(pacient.getPriimek()).equals(priimek))
+            return pacient;
+      }
+      return null;
+   }
+
    /** @pdOid 136de252-1375-4dc7-8bd7-b3dc3ab882cd */
    public int prijavaVSistem(String userName, String pass) {
       // TODO: implement
@@ -76,16 +100,22 @@ public class KAplikacija {
    
    /** @pdGenerated default getter */
    public java.util.Collection<OpisPacienta> getOpisPacienta() {
-      if (opisPacienta == null)
-         opisPacienta = new java.util.HashSet<OpisPacienta>();
-      return opisPacienta;
+      if (opisPacientov == null)
+         opisPacientov = new java.util.HashSet<OpisPacienta>();
+      return opisPacientov;
    }
    
    /** @pdGenerated default iterator getter */
-   public java.util.Iterator<OpisPacienta> getIteratorOpisPacienta() {
-      if (opisPacienta == null)
-         opisPacienta = new java.util.HashSet<OpisPacienta>();
-      return opisPacienta.iterator();
+   public java.util.Iterator<OpisPacienta> getPacienti() {
+      if (opisPacientov == null)
+         opisPacientov = new java.util.HashSet<OpisPacienta>();
+      return opisPacientov.iterator();
+   }
+
+   public ArrayList getPacienti2() {
+      if (opisPacientov == null)
+         opisPacientov = new java.util.HashSet<OpisPacienta>();
+      return (ArrayList) opisPacientov;
    }
    
    /** @pdGenerated default setter
@@ -101,10 +131,10 @@ public class KAplikacija {
    public void addOpisPacienta(OpisPacienta newOpisPacienta) {
       if (newOpisPacienta == null)
          return;
-      if (this.opisPacienta == null)
-         this.opisPacienta = new java.util.HashSet();
-      if (!this.opisPacienta.contains(newOpisPacienta))
-         this.opisPacienta.add(newOpisPacienta);
+      if (this.opisPacientov == null)
+         this.opisPacientov = new java.util.HashSet();
+      if (!this.opisPacientov.contains(newOpisPacienta))
+         this.opisPacientov.add(newOpisPacienta);
    }
    
    /** @pdGenerated default remove
@@ -112,15 +142,15 @@ public class KAplikacija {
    public void removeOpisPacienta(OpisPacienta oldOpisPacienta) {
       if (oldOpisPacienta == null)
          return;
-      if (this.opisPacienta != null)
-         if (this.opisPacienta.contains(oldOpisPacienta))
-            this.opisPacienta.remove(oldOpisPacienta);
+      if (this.opisPacientov != null)
+         if (this.opisPacientov.contains(oldOpisPacienta))
+            this.opisPacientov.remove(oldOpisPacienta);
    }
    
    /** @pdGenerated default removeAll */
    public void removeAllOpisPacienta() {
-      if (opisPacienta != null)
-         opisPacienta.clear();
+      if (opisPacientov != null)
+         opisPacientov.clear();
    }
    /** @pdGenerated default getter */
    public java.util.Collection getTerapija() {

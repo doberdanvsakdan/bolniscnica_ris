@@ -30,4 +30,11 @@ public class KartotekaPacienta {
       return 0;
    }
 
+   public int getIdPacienta() {
+      return idPacienta;
+   }
+
+   public int getIdTerapije() {
+      return idTerapije;
+   }
 }

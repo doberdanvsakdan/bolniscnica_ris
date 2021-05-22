@@ -23,14 +23,25 @@ public class OpisPacienta {
    /** @pdOid 23aff2bd-5568-4e4b-be0e-73c494390eaf */
    private int stZzzs;
    /** @pdOid 65d15532-2f5b-4e5f-9e38-bab18a1c6dd2 */
-   private int idPacienta;
+   private int idPacienta = 0;
+   private int stPacientov = 0;
 
    public OpisPacienta(String ime, String priimek, long emso, String naslov, long tel) {
+      this.idPacienta++;
       this.ime = ime;
       this.priimek = priimek;
       this.emso = emso;
       this.naslov = naslov;
       this.tel = tel;
+      stPacientov++;
+   }
+
+   public int size(){
+      return stPacientov;
+   }
+
+   public int getIdPacienta() {
+      return idPacienta;
    }
 
    /** @pdOid 0a94d17b-53f1-4679-88b4-3d2c896ca29b */
@@ -46,6 +57,32 @@ public class OpisPacienta {
    }
 
    public String getName() {
-      return this.ime + " " + this.priimek;
+      return this.ime;
    }
+
+   public String getPriimek(){
+      return this.priimek;
+   }
+
+   public long getEmso() {
+      return emso;
+   }
+
+   public String getNaslov() {
+      return naslov;
+   }
+
+   public Date getDatumRojstva() {
+      return datumRojstva;
+   }
+
+   public long getTel() {
+      return tel;
+   }
+
+   public int getStZzzs() {
+      return stZzzs;
+   }
+
+
 }
