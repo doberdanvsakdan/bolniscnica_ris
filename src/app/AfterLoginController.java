@@ -46,32 +46,34 @@ public class AfterLoginController implements Initializable {
 
 
     public void prikaziKartotekoCB(ActionEvent actionEvent) throws Exception {
-        String priimek = patientsCombo.getSelectionModel().getSelectedItem().split(" ")[1];
-        Object[] arr = controller.dostopDoKartoteke(priimek);
-        try {
-            pacient = (OpisPacienta) arr[0];
+        if (patientsCombo.getSelectionModel().getSelectedItem() != null) {
+            String priimek = patientsCombo.getSelectionModel().getSelectedItem().split(" ")[1];
+            Object[] arr = controller.dostopDoKartoteke(priimek);
+            try {
+                pacient = (OpisPacienta) arr[0];
 
-            nameField.setText(pacient.getName());
-            nameField.setEditable(true);
-            lastNameField.setText(pacient.getPriimek());
-            lastNameField.setEditable(true);
-            emsoField.setText(String.valueOf(pacient.getEmso()));
-            emsoField.setEditable(true);
-            String[] naslov = pacient.getNaslov().split(",");
-            addressField.setText(naslov[0].strip());
-            addressField.setEditable(true);
-            placeField.setText(naslov[1].strip());
-            placeField.setEditable(true);
-            mobileField.setText(String.valueOf(pacient.getTel()));
-            mobileField.setEditable(true);
+                nameField.setText(pacient.getName());
+                nameField.setEditable(true);
+                lastNameField.setText(pacient.getPriimek());
+                lastNameField.setEditable(true);
+                emsoField.setText(String.valueOf(pacient.getEmso()));
+                emsoField.setEditable(true);
+                String[] naslov = pacient.getNaslov().split(",");
+                addressField.setText(naslov[0].strip());
+                addressField.setEditable(true);
+                placeField.setText(naslov[1].strip());
+                placeField.setEditable(true);
+                mobileField.setText(String.valueOf(pacient.getTel()));
+                mobileField.setEditable(true);
 
-            terapija = (Terapija) arr[1];
+                terapija = (Terapija) arr[1];
 
-            healthArea.setText(terapija.getOpisTezave());
-            drugsArea.setText(terapija.getPredpisanoZdravljenje());
+                healthArea.setText(terapija.getOpisTezave());
+                drugsArea.setText(terapija.getPredpisanoZdravljenje());
 
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -93,15 +95,12 @@ public class AfterLoginController implements Initializable {
         }
         int stikalo = controller.vnosTerapijeZOdpustnico(pacient, Integer.parseInt(idField.getText()));
         switch (stikalo) {
-            case 2:
-                statusLabel.setText("Napaka v naročilu čiščenja");
-                break;
-            case 1:
-                statusLabel.setText("Napaka v izdaji računa");
-                break;
-            case 0:
+            case 2 -> statusLabel.setText("Napaka v naročilu čiščenja");
+            case 1 -> statusLabel.setText("Napaka v izdaji računa");
+            case 0 -> {
                 statusLabel.setTextFill(Color.web("#4ec1b5"));
                 statusLabel.setText("Račun izdan");
+            }
         }
 
     }

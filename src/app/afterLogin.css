@@ -25,3 +25,7 @@
     -fx-background-color: #29ade4;
     -fx-text-fill: WHITE;
 }
+
+#statusLabel.text-field {
+    -fx-font-weight: bold;
+}

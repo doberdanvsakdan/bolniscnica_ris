@@ -18,7 +18,7 @@ public class CiscenjeSob {
       try {
          System.out.println("\n\n");
          System.out.println("Izda se zahteva za čiščenje sobe pacienta:");
-         System.out.println(patient.getIdPacienta() + " - " + patient.getPriimek() + ", " + patient.getName());
+         System.out.println(patient.getIdPacienta() + " - " + patient.getPriimek() + ", " + patient.getName() + "\n\n");
          return 0;
       } catch (Exception e) {
          System.out.println(e.getMessage());
