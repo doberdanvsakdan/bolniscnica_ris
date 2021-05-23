@@ -64,11 +64,12 @@ public class KAplikacija {
               Vseeno ga bomo zadržali na opazovanju
               Bla bla bla
               He he, cena go brrr
-              Trala la, Trala li, Marjana kolen' boli
-              Mogoče dans,
-              mogoč' te dni, 
-              oftalmolog ga le u roke dobi,
-              če njegova uč se prej ne zaceli ;)"""));
+              Trala la, Trala li, 
+              Marjana kolen' boli
+              Mogoče dans, mogoč' te dni, 
+              plačilo preveliko ni.
+              Če uč do torka se ne pozdrav,
+              na račun še oftalmolog se bo dodal ;)"""));
       // reference: https://www.saeka.si/otekanje-nog-in-naturopatija/
 
       kartoteke.add(new KartotekaPacienta(0,0));
