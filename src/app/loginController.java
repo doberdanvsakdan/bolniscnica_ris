@@ -25,7 +25,6 @@ public class loginController implements Initializable {
         KAplikacija controller = new KAplikacija();
 
         try {
-            System.out.println(userNameField.getText() + "; " + passwordField.getText());
             if (controller.prijavaVSistem(userNameField.getText(), passwordField.getText()) == 1) {
                 System.out.println("Prijava uspešna");
                 m.changeScene("afterLogin.fxml");

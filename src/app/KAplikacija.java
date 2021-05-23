@@ -13,8 +13,6 @@ public class KAplikacija {
    public Ldap ldap;
    /** @pdRoleInfo migr=no name=OpisPacienta assc=association3 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public ArrayList<OpisPacienta> opisPacientov;
-   /** @pdRoleInfo migr=no name=Terapija assc=association6 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
-   public java.util.Collection<Terapija> terapija;
    /** @pdRoleInfo migr=no name=IzdajaRacuna assc=zahtevekZaIzdajoRacuna coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<IzdajaRacuna> izdajaRacuna;
    /** @pdRoleInfo migr=no name=CiscenjeSob assc=association8 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
@@ -23,62 +21,57 @@ public class KAplikacija {
    public java.util.Collection<PogrebnaSluzba> pogrebnaSluzba;
    /** @pdRoleInfo migr=no name=Arhiv assc=association10 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<Arhiv> arhiv;
-   private int stPacientov = 0;
+   private int stPacientov;
    private int stTerapij = 0;
    public ArrayList<Terapija> terapije;
    public ArrayList<KartotekaPacienta> kartoteke;
    public KartotekaPacienta kartotekaPacienta;
 
    public KAplikacija() {
-      opisPacientov = new ArrayList<>();
-      terapije = new ArrayList<>();
-      kartoteke = new ArrayList<KartotekaPacienta>();
-      registracija("Marija", "Cvetka", 1805971505, "Celovška cesta 88, 1000 Ljubljana", 031234657);
-      registracija("Joze", "Stefan", 1204970500, "Slovenska cesta 3, 1000 Ljubljana", 040123456);
+      kartoteke = new ArrayList<>();
+      stPacientov = 0;
 
-      vnosTerapijeZOdpustnico(0,0, "to je opis za cvetko", "cvetka preveč pije.");
-      vnosTerapijeZOdpustnico(1,1,"opis težav za Jožeta", "Z Jožetom ni nič narobe. Je zgolj hipohonder.");
+      registracija("Marija", "Cvetka", "1805971505463", "Celovška cesta 88, 1000 Ljubljana", "031234657");
+      registracija("Joze", "Stefan", "1204970500564", "Slovenska cesta 3, 1000 Ljubljana", "040123456");
 
-      kartoteke.add(new KartotekaPacienta(2,0));
-      kartoteke.add(new KartotekaPacienta(3,1));
+      addTerapija(new Terapija(0,0, "to je opis za cvetko", "cvetka preveč pije."));
+      addTerapija(new Terapija(1,1,"opis težav za Jožeta", "Z Jožetom ni nič narobe. Je zgolj hipohonder."));
 
+      kartoteke.add(new KartotekaPacienta(0,0));
+      kartoteke.add(new KartotekaPacienta(1,1));
    }
 
    public KartotekaPacienta dobiKartoteko(int idPacienta){
-      for (int i = 0; i < kartoteke.size(); i++) {
-         if (kartoteke.get(i).getIdPacienta() == idPacienta)
-            return kartoteke.get(i);
+      for (KartotekaPacienta pacienta : kartoteke) {
+         if (pacienta.getIdPacienta() == idPacienta)
+            return pacienta;
       }
       return null;
    }
 
    public Terapija dobiTerapijo(int idTerapije){
-      for (int i = 0; i < terapije.size(); i++) {
-         if (terapije.get(i).getIdTerapije() == idTerapije)
-            return terapije.get(i);
+      for (Terapija terapija : terapije) {
+         if (terapija.getIdTerapije() == idTerapije)
+            return terapija;
       }
       return null;
    }
 
-   public Terapija nastaviTerapijo(int idTerapije){
-      for (int i = 0; i < terapije.size(); i++) {
-         if (terapije.get(i).getIdTerapije() == idTerapije)
-            return terapije.get(i);
+   public void registracija(String ime, String priimek, String emso, String naslov, String tel) {
+      if (this.opisPacientov == null)
+         this.opisPacientov = new ArrayList<>();
+      for (OpisPacienta pacient : opisPacientov) {
+         if (pacient.getEmso().equals(emso)) {
+            return;
+         }
       }
-      return null;
-   }
-
-
-   public void registracija(String ime, String priimek, long emso, String naslov, long tel){
-      opisPacientov.add(new OpisPacienta(ime, priimek, emso, naslov, tel));
+      opisPacientov.add(new OpisPacienta(ime, priimek, emso, naslov, tel, this.stPacientov));
       stPacientov++;
    }
 
    /** @pdOid 2a608df2-a386-488c-8e91-4107a7a9def3 */
-   public int vnosTerapijeZOdpustnico(int idTerapije, int idZaposlenega, String opisTezave, String predpisanoZdravljenje) {
-      terapije.add(new Terapija(idTerapije, idZaposlenega, opisTezave, predpisanoZdravljenje));
-      stTerapij++;
-      return 0;
+   public void vnosTerapijeZOdpustnico(int patID) {
+
    }
 
    public OpisPacienta getPacient(String priimek) throws Exception {
@@ -100,15 +93,16 @@ public class KAplikacija {
 
    /** @pdOid 136de252-1375-4dc7-8bd7-b3dc3ab882cd */
    public int prijavaVSistem(String userName, String pass) {
-      // TODO: implement
       ldap = new Ldap();
       return ldap.zahtevaZaAvtentikacijo(userName, pass);
    }
    
    /** @pdOid a4d24478-b24f-4a2c-b193-19e29ac7188c */
-   public KartotekaPacienta dostopDoKartoteke(String str) {
-      // TODO: implement
-      return new KartotekaPacienta(1, 1);
+   public Object[] dostopDoKartoteke(String priimek) throws Exception {
+      OpisPacienta pat = getPacient(priimek);
+      Terapija ter = dobiTerapijo(dobiKartoteko(pat.getIdPacienta()).getIdTerapije());
+
+      return new Object[] {pat, ter};
    }
    
 
@@ -190,24 +184,16 @@ public class KAplikacija {
    }
    /** @pdGenerated default getter */
    public java.util.Collection getTerapija() {
-      if (terapija == null)
-         terapija = new java.util.HashSet();
-      return terapija;
+      if (terapije == null)
+         terapije = new ArrayList<>();
+      return terapije;
    }
    
    /** @pdGenerated default iterator getter */
    public java.util.Iterator getIteratorTerapija() {
-      if (terapija == null)
-         terapija = new java.util.HashSet();
-      return terapija.iterator();
-   }
-   
-   /** @pdGenerated default setter
-     * @param newTerapija */
-   public void setTerapija(java.util.Collection newTerapija) {
-      removeAllTerapija();
-      for (java.util.Iterator iter = newTerapija.iterator(); iter.hasNext();)
-         addTerapija((Terapija)iter.next());
+      if (terapije == null)
+         terapije = new ArrayList<>();
+      return terapije.iterator();
    }
    
    /** @pdGenerated default add
@@ -215,10 +201,12 @@ public class KAplikacija {
    public void addTerapija(Terapija newTerapija) {
       if (newTerapija == null)
          return;
-      if (this.terapija == null)
-         this.terapija = new java.util.HashSet();
-      if (!this.terapija.contains(newTerapija))
-         this.terapija.add(newTerapija);
+      if (this.terapije == null)
+         this.terapije = new ArrayList<>();
+      if (!this.terapije.contains(newTerapija)) {
+         this.terapije.add(newTerapija);
+         stTerapij++;
+      }
    }
    
    /** @pdGenerated default remove
@@ -226,15 +214,15 @@ public class KAplikacija {
    public void removeTerapija(Terapija oldTerapija) {
       if (oldTerapija == null)
          return;
-      if (this.terapija != null)
-         if (this.terapija.contains(oldTerapija))
-            this.terapija.remove(oldTerapija);
+      if (this.terapije != null)
+         if (this.terapije.contains(oldTerapija))
+            this.terapije.remove(oldTerapija);
    }
    
    /** @pdGenerated default removeAll */
    public void removeAllTerapija() {
-      if (terapija != null)
-         terapija.clear();
+      if (terapije != null)
+         terapije.clear();
    }
    /** @pdGenerated default getter */
    public java.util.Collection getIzdajaRacuna() {

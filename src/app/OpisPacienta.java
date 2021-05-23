@@ -13,27 +13,26 @@ public class OpisPacienta {
    /** @pdOid 31d1af5f-08d1-4327-8dda-610a80b34ee1 */
    private String priimek;
    /** @pdOid 8d3aaeb4-9cf2-41bd-8b4b-04136badfb8c */
-   private long emso;
+   private String emso;
    /** @pdOid 028c48a4-40de-4035-90d9-ed4bf047b564 */
    private String naslov;
    /** @pdOid 444fc79e-c2ec-47f1-ad23-66a226860686 */
    private Date datumRojstva;
    /** @pdOid 271b667f-133b-44be-9ba1-bc26daa64395 */
-   private long tel;
+   private String tel;
    /** @pdOid 23aff2bd-5568-4e4b-be0e-73c494390eaf */
    private int stZzzs;
    /** @pdOid 65d15532-2f5b-4e5f-9e38-bab18a1c6dd2 */
    private int idPacienta;
-   private static int stPacientov = 0;
+   private static int stPacientov;
 
-   public OpisPacienta(String ime, String priimek, long emso, String naslov, long tel) {
-      this.idPacienta = stPacientov;
+   public OpisPacienta(String ime, String priimek, String emso, String naslov, String tel, int id) {
+      this.idPacienta = id;
       this.ime = ime;
       this.priimek = priimek;
       this.emso = emso;
       this.naslov = naslov;
       this.tel = tel;
-      stPacientov++;
    }
 
    public int size(){
@@ -60,24 +59,48 @@ public class OpisPacienta {
       return this.ime;
    }
 
+   public void setName(String ime) {
+      this.ime = ime;
+   }
+
    public String getPriimek(){
       return this.priimek;
    }
 
-   public long getEmso() {
+   public void setPriimek(String priimek) {
+      this.priimek = priimek;
+   }
+
+   public String getEmso() {
       return emso;
+   }
+
+   public void setEmso(String emso) {
+      this.emso = emso;
    }
 
    public String getNaslov() {
       return naslov;
    }
 
+   public void setNaslov(String ulica, String kraj) {
+      setNaslov(ulica + ", " + kraj);
+   }
+
+   public void setNaslov(String naslov) {
+      this.naslov = naslov;
+   }
+
    public Date getDatumRojstva() {
       return datumRojstva;
    }
 
-   public long getTel() {
+   public String getTel() {
       return tel;
+   }
+
+   public void setTel(String tel) {
+      this.tel = tel;
    }
 
    public int getStZzzs() {

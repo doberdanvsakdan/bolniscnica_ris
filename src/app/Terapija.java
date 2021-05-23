@@ -29,7 +29,7 @@ public class Terapija {
       return idTerapije;
    }
 
-   public String getOpisTezave(int idTerapije) {
+   public String getOpisTezave() {
       return opisTezave;
    }
 
@@ -37,7 +37,7 @@ public class Terapija {
       this.opisTezave = opisTezave;
    }
 
-   public String getPredpisanoZdravljenje(int idTerapije) {
+   public String getPredpisanoZdravljenje() {
       return predpisanoZdravljenje;
    }
 

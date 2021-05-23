@@ -19,7 +19,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Datoteka">
             <items>
-                  <MenuItem fx:id="saveCB" mnemonicParsing="false" onAction="#vnosTerapijeZOdpustnico" text="Shrani" />
+                  <MenuItem fx:id="saveCB" mnemonicParsing="false" onAction="#saveCB" text="Shrani" />
                   <MenuItem fx:id="logoutCB" mnemonicParsing="false" onAction="#logoutCB" text="Izpis" />
               <MenuItem fx:id="exitCB" mnemonicParsing="false" onAction="#exitCB" text="Izhod" />
             </items>
@@ -61,12 +61,18 @@
             <Label layoutX="312.0" layoutY="185.0" text="Tel.:" AnchorPane.leftAnchor="312.0" AnchorPane.topAnchor="185.0" />
             <TextField fx:id="mobileField" editable="false" layoutX="415.0" layoutY="180.0" prefWidth="180.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="180.0" />
             <Label layoutX="21.0" layoutY="234.0" text="Zdravstveno stanje:" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="225.0" />
-            <TextArea fx:id="healthArea" layoutX="24.0" layoutY="247.0" prefHeight="142.0" prefWidth="552.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="250.0" />
-            <Button fx:id="saveBttn" layoutX="531.0" layoutY="411.0" mnemonicParsing="false" onAction="#vnosTerapijeZOdpustnico" prefHeight="30.0" prefWidth="150.0" text="Shrani in odpusti" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="24.0">
+            <TextArea fx:id="healthArea" layoutX="24.0" layoutY="247.0" prefHeight="150.0" prefWidth="260.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="250.0" />
+            <TextArea fx:id="drugsArea" layoutX="376.0" layoutY="250.0" prefHeight="150.0" prefWidth="260.0" AnchorPane.bottomAnchor="51.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="250.0" />
+            <Button fx:id="saveBttn" layoutX="531.0" layoutY="411.0" mnemonicParsing="false" onAction="#saveCB" prefHeight="30.0" prefWidth="70.0" text="Shrani" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="24.0">
              <font>
                  <Font name="DIN Alternate Bold" size="13.0" />
              </font>
             </Button>
+             <Button fx:id="odpustiBttn" layoutX="416.0" layoutY="410.0" mnemonicParsing="false" onAction="#vnosTerapijeZOdpustnicoCB" prefHeight="30.0" prefWidth="70.0" text="Odpusti" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="114.0" >
+                 <font>
+                     <Font name="DIN Alternate Bold" size="13.0" />
+                 </font>
+             </Button>
          </children>
       </AnchorPane>
    </center>
