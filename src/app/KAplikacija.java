@@ -37,30 +37,54 @@ public class KAplikacija {
 
       addTerapija(new Terapija(0,0, """
          Cvetka preveč pije.
-         Glede na povedano ima zato velike težave
-         Sumimo da lahko povečano zaužitje pijač negativno vpliva na njene gibalne sposobnosti
+         Glede na povedano ima zato velike težave.
+         Sumimo da lahko povečano zaužitje pijač 
+         negativno vpliva na njene gibalne sposobnosti.
          Vsa zaužita voda izpira pomembne hranilne snovi iz sistema""", """
-         Predlagam povečano jemanje prehranskih dopolnil z visoko vsebnostjo kalcija in kalija
-         Kontrolni pregled čez 1 teden, v primeru poslabšanja pa takoj"""));
+         Predlagam povečano jemanje prehranskih dopolnil 
+         z visoko vsebnostjo kalcija in kalija.
+         Kontrolni pregled čez 1 teden, 
+         v primeru poslabšanja pa takoj."""));
       addTerapija(new Terapija(1,1, """
-              Jože prišel na pregled zaradi bolečin v kolenu v višini 8.3
-              Konstantno se pritočuje nad bolečino
-              Mobilna naprava zaznava koračno asimetrijo v vrednosti 77,3%
-              Po eksterni akutni travmi na kolenu levo frontalno opažam edem premera 15cm
-              Lateralno se nahaja perforacija dermičnega tkiva približno 8cm dolga in pol centimetra globoka""", """
-              Glede na videno predlagam počitek in povečano uživanje tekočin
-              Svetovano je vsaj liter in pol čaja njivske preslice, ki naj bo sveže nabrana in ročno trgana
-              Za preprečevanje okužb priporočam vsaj 1 liter ananasovega soka, ki vpliva na cirkulacijo in
-              čiščenje limfne tekočine
-              Za blaženje vulnusa naj si 2-krat dnevno namaže kostanjev med na poškodovano površino,
-              zjutraj pa cvetlični med podjetja Medex d.o.o.
-              Pacientu je bila tudi predana zloženka z natančnejšimi navodili"""));
+              Jože prišel na pregled, 
+              zaradi bolečin v kolenu v višini 8.3.
+              Konstantno se pritočuje nad bolečino.
+              Mobilna naprava zaznava koračno 
+              asimetrijo v vrednosti 77,3%.
+              Po eksterni akutni travmi 
+              na kolenu levo frontalno 
+              opažam edem premera 15cm.
+              Lateralno se nahaja perforacija 
+              dermičnega tkiva približno 8cm 
+              dolga in pol centimetra globoka.""", """
+              Glede na videno predlagam 
+              počitek in povečano uživanje tekočin.
+              Svetovano je vsaj liter in pol 
+              čaja njivske preslice, 
+              ki naj bo sveže nabrana 
+              in ročno trgana.
+              Za preprečevanje okužb priporočam 
+              vsaj 1 liter ananasovega soka, 
+              ki vpliva na cirkulacijo in
+              čiščenje limfne tekočine.
+              Za blaženje vulnusa naj si 
+              2-krat dnevno namaže kostanjev 
+              med na poškodovano površino,
+              zjutraj pa cvetlični med podjetja 
+              Medex d.o.o.
+              Pacientu je bila tudi predana 
+              zloženka z natančnejšimi navodili"""));
       addTerapija(new Terapija(2,1, """
-              Marjan je bil sprejet v sredo z močno bolečino na desnem kolenu
+              Marjan je bil sprejet v sredo, 
+              z močno bolečino na desnem kolenu
               Zunanji pregled BP
-              Na dotik se odzove z jamranjem in popačenim obrazom
-              Desno oko se nekako čudno pokrči, medtem ko levo hitro migeta""", """
-              Z Marjanom ni nič narobe. Predvidevam da je samo hipohonder
+              Na dotik se odzove z jamranjem 
+              in popačenim obrazom
+              Desno oko se nekako čudno pokrči, 
+              medtem ko levo hitro migeta""",
+              """
+              Z Marjanom ni nič narobe. 
+              Predvidevam da je samo hipohonder
               Vseeno ga bomo zadržali na opazovanju
               Bla bla bla
               He he, cena go brrr
@@ -69,7 +93,7 @@ public class KAplikacija {
               Mogoče dans, mogoč' te dni, 
               plačilo preveliko ni.
               Če uč do torka se ne pozdrav,
-              na račun še oftalmolog se bo dodal ;)"""));
+              na račun oftalmolog se bo dodal ;)"""));
       // reference: https://www.saeka.si/otekanje-nog-in-naturopatija/
 
       kartoteke.add(new KartotekaPacienta(0,0));
