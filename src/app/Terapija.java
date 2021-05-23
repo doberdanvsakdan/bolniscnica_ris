@@ -16,9 +16,37 @@ public class Terapija {
    private String opisTezave;
    /** @pdOid 3e110ea1-4b5d-4c6c-8e82-be9ebd680363 */
    private String predpisanoZdravljenje;
-   
+
+
+   public Terapija(int idTerapije, int idZaposlenega, String opisTezave, String predpisanoZdravljenje) {
+      this.idTerapije = idTerapije;
+      this.idZaposlenega = idZaposlenega;
+      this.opisTezave = opisTezave;
+      this.predpisanoZdravljenje = predpisanoZdravljenje;
+   }
+
+   public int getIdTerapije() {
+      return idTerapije;
+   }
+
+   public String getOpisTezave(int idTerapije) {
+      return opisTezave;
+   }
+
+   public void setOpisTezave(String opisTezave) {
+      this.opisTezave = opisTezave;
+   }
+
+   public String getPredpisanoZdravljenje(int idTerapije) {
+      return predpisanoZdravljenje;
+   }
+
+   public void setPredpisanoZdravljenje(String predpisanoZdravljenje) {
+      this.predpisanoZdravljenje = predpisanoZdravljenje;
+   }
+
    /** @pdOid eb216218-96c8-4ce9-8530-fbe42dadc6d2 */
-   public int zapisTerapije() {
+   public int zapisTerapije(int idPacienta, String opis) {
       // TODO: implement
       return 0;
    }

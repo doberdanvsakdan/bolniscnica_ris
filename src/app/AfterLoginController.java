@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Iterator;
+
 import java.util.ResourceBundle;
 
 public class AfterLoginController implements Initializable {
@@ -24,20 +24,46 @@ public class AfterLoginController implements Initializable {
     public MenuItem saveCB;
     public MenuItem logoutCB;
     public MenuItem exitCB;
+    private Terapija terapija;
+    private int idTerapije;
 
     private final KAplikacija controller = new KAplikacija();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Iterator<OpisPacienta> iter = controller.getIteratorOpisPacienta();
-        while (iter.hasNext()) {
-            patientsCombo.getItems().add(iter.next().getName());
+
+        for (int i = 0; i < controller.opisPacientov.size(); i++) {
+            OpisPacienta pacient = controller.opisPacientov.get(i);
+            patientsCombo.getItems().add(pacient.getName() + " " + pacient.getPriimek());
         }
-        patientsCombo.getItems().addAll("Albert", "Bertoncelj", "Ciril");
     }
 
-    public void prikaziKartotekoCB(ActionEvent actionEvent) {
-        KartotekaPacienta kart = controller.dostopDoKartoteke(patientsCombo.getSelectionModel().getSelectedItem());
+
+    public void prikaziKartotekoCB(ActionEvent actionEvent) throws Exception {
+
+        try {
+            String priimek = patientsCombo.getSelectionModel().getSelectedItem().split(" ")[1];
+            OpisPacienta pacient = controller.getPacient(priimek);
+
+            nameField.setText(pacient.getName());
+            lastNameField.setText(pacient.getPriimek());
+            emsoField.setText(String.valueOf(pacient.getEmso()));
+            String[] naslov = pacient.getNaslov().split(",");
+            addressField.setText(naslov[0].strip());
+            placeField.setText(naslov[1].strip());
+            mobileField.setText(String.valueOf(pacient.getTel()));
+
+            idTerapije = controller.dobiKartoteko(pacient.getIdPacienta()).getIdTerapije();
+            terapija = controller.dobiTerapijo(idTerapije);
+
+            String tezave = terapija.getOpisTezave(idTerapije) + "\n" + terapija.getPredpisanoZdravljenje(idTerapije);
+
+            healthArea.setText(tezave);
+
+            System.out.println(pacient.getIdPacienta());
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     public void logoutCB(ActionEvent actionEvent) throws IOException {
@@ -50,6 +76,14 @@ public class AfterLoginController implements Initializable {
     }
 
     public void vnosTerapijeZOdpustnico(ActionEvent actionEvent) {
+
+        System.out.println("asd");
+        terapija.setOpisTezave("");
+        terapija.setPredpisanoZdravljenje("");
+
+        terapija.setOpisTezave(healthArea.getText());
+
+        System.out.println(healthArea.getText());
     }
 
     public void exitCB(ActionEvent actionEvent) {

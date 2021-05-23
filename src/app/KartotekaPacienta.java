@@ -13,9 +13,9 @@ public class KartotekaPacienta {
    /** @pdOid 520c2671-fbd7-4275-9c0a-bdbbc26e852c */
    private int idTerapije;
 
-   public KartotekaPacienta(int id, int idTer) {
-      this.idPacienta = id;
-      this.idTerapije = idTer;
+   public KartotekaPacienta(int idPacienta, int idTerapije) {
+      this.idPacienta = idPacienta;
+      this.idTerapije = idTerapije;
    }
    
    /** @pdOid 590067c2-7c5e-410d-98a4-783cacebb99e */
@@ -30,4 +30,11 @@ public class KartotekaPacienta {
       return 0;
    }
 
+   public int getIdTerapije() {
+      return idTerapije;
+   }
+
+   public int getIdPacienta() {
+      return idPacienta;
+   }
 }
