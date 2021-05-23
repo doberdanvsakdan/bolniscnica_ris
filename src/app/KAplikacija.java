@@ -34,6 +34,7 @@ public class KAplikacija {
       registracija("Marija", "Cvetka", "1805971505463", "Celovška cesta 88, 1000 Ljubljana", "031234657");
       registracija("Joze", "Stefan", "1204970500564", "Slovenska cesta 3, 1000 Ljubljana", "040123456");
       registracija("Marjan", "Novak", "0606963500231", "Gospodska cesta 18, 3223 Šmarje pri Jelšah", "040284426");
+      registracija("Tončka", "Oblak", "2911966505659", "Ulica zamorcev 11, 4000 Koper", "040285693");
 
       addTerapija(new Terapija(0,0, """
          Cvetka preveč pije.
@@ -94,11 +95,28 @@ public class KAplikacija {
               plačilo preveliko ni.
               Če uč do torka se ne pozdrav,
               na račun oftalmolog se bo dodal ;)"""));
+      addTerapija(new Terapija(3,0, """
+              Tončko pa kolen boli,
+              jumpajda, jumpajdi,
+              samo stoka nič ne spi,
+              jumpajdijadi.
+              
+              Ko koleno se pozdrav,
+              jumpajdi, jumpajda,
+              račun se velik bo ji dal,
+              jumpajdi o dal.
+              """,
+              """
+              Če račun zapadel bo
+              jumpajdi, jumpajdo
+              koleno spet bolelo bo
+              jumpajdi zelo"""));
       // reference: https://www.saeka.si/otekanje-nog-in-naturopatija/
 
       kartoteke.add(new KartotekaPacienta(0,0));
       kartoteke.add(new KartotekaPacienta(1,1));
       kartoteke.add(new KartotekaPacienta(2,2));
+      kartoteke.add(new KartotekaPacienta(3,3));
    }
 
    public KartotekaPacienta dobiKartoteko(int idPacienta){
