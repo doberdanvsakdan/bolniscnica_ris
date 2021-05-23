@@ -111,6 +111,7 @@ public class KAplikacija {
               jumpajdi, jumpajdo
               koleno spet bolelo bo
               jumpajdi zelo"""));
+
       // reference: https://www.saeka.si/otekanje-nog-in-naturopatija/
 
       kartoteke.add(new KartotekaPacienta(0,0));
