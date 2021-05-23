@@ -42,9 +42,9 @@ public class KAplikacija {
    }
 
    public KartotekaPacienta dobiKartoteko(int idPacienta){
-      for (KartotekaPacienta pacienta : kartoteke) {
-         if (pacienta.getIdPacienta() == idPacienta)
-            return pacienta;
+      for (KartotekaPacienta kartoteka : kartoteke) {
+         if (kartoteka.getIdPacienta() == idPacienta)
+            return kartoteka;
       }
       return null;
    }
@@ -70,8 +70,16 @@ public class KAplikacija {
    }
 
    /** @pdOid 2a608df2-a386-488c-8e91-4107a7a9def3 */
-   public void vnosTerapijeZOdpustnico(int patID) {
+   public int vnosTerapijeZOdpustnico(OpisPacienta pat, int specialist) {
+      IzdajaRacuna bill = new IzdajaRacuna();
+      Terapija tera = dobiTerapijo(dobiKartoteko(pat.getIdPacienta()).getIdTerapije());
+      float cena = (tera.getOpisTezave() + "\n" + tera.getPredpisanoZdravljenje()).length();
+      if (bill.zahtevaZaIzdajoRacuna(pat, specialist, cena) != 0)
+         return 1;
 
+      if (new CiscenjeSob().zahtevaZaCiscenjeSob(pat) != 0)
+         return 2;
+      return 0;
    }
 
    public OpisPacienta getPacient(String priimek) throws Exception {

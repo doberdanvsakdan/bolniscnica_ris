@@ -18,9 +18,17 @@ public class IzdajaRacuna {
    private Date datum;
    
    /** @pdOid c3fa20ca-beba-4c5d-8aae-801f58be749d */
-   public int zahtevaZaIzdajoRacuna() {
-      // TODO: implement
-      return 0;
+   public int zahtevaZaIzdajoRacuna(OpisPacienta pacient, int specialist, float cena) {
+      try {
+         System.out.println("Izda se račun za osebo:");
+         System.out.println(pacient.getPriimek() + ", " + pacient.getName());
+         System.out.println("Račun je izdal specialist št. " + specialist);
+         System.out.println("v višini " + cena + "€.");
+         return 0;
+      } catch (Exception e) {
+         System.out.println(e.getMessage());
+      }
+      return 1;
    }
    
    /** @pdOid b4fc25d4-b535-4ddd-b2c4-746c8754f9f0 */

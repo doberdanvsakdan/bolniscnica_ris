@@ -3,6 +3,7 @@ package app;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +27,8 @@ public class AfterLoginController implements Initializable {
     public MenuItem exitCB;
     public TextArea drugsArea;
     public Button odpustiBttn;
+    public TextField idField;
+    public Label statusLabel;
     private Terapija terapija;
     private OpisPacienta pacient;
     private KAplikacija controller;
@@ -84,7 +87,22 @@ public class AfterLoginController implements Initializable {
     public void vnosTerapijeZOdpustnicoCB(ActionEvent actionEvent) throws Exception {
         saveCB(new ActionEvent());
 
-        controller.vnosTerapijeZOdpustnico(pacient.getIdPacienta());
+        if(idField.getText().equals("")) {
+            statusLabel.setText("Vpiši ID specialista");
+            return;
+        }
+        int stikalo = controller.vnosTerapijeZOdpustnico(pacient, Integer.parseInt(idField.getText()));
+        switch (stikalo) {
+            case 2:
+                statusLabel.setText("Napaka v naročilu čiščenja");
+                break;
+            case 1:
+                statusLabel.setText("Napaka v izdaji računa");
+                break;
+            case 0:
+                statusLabel.setTextFill(Color.web("#4ec1b5"));
+                statusLabel.setText("Račun izdan");
+        }
 
     }
 

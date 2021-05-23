@@ -14,9 +14,16 @@ public class CiscenjeSob {
    private Date datumZahteve;
    
    /** @pdOid 878c315c-ee65-4b6b-81fb-edd6c1f1592d */
-   public int zahtevaZaCiscenjeSob() {
-      // TODO: implement
-      return 0;
+   public int zahtevaZaCiscenjeSob(OpisPacienta patient) {
+      try {
+         System.out.println("\n\n");
+         System.out.println("Izda se zahteva za čiščenje sobe pacienta:");
+         System.out.println(patient.getIdPacienta() + " - " + patient.getPriimek() + ", " + patient.getName());
+         return 0;
+      } catch (Exception e) {
+         System.out.println(e.getMessage());
+      }
+      return 1;
    }
 
 }

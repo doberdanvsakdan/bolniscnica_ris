@@ -26,7 +26,6 @@ public class loginController implements Initializable {
 
         try {
             if (controller.prijavaVSistem(userNameField.getText(), passwordField.getText()) == 1) {
-                System.out.println("Prijava uspešna");
                 m.changeScene("afterLogin.fxml");
             } else
                 passwordStatusLabel.setText("Uporabniško ime ali geslo je napačno.");

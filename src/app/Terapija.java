@@ -33,7 +33,7 @@ public class Terapija {
       return opisTezave;
    }
 
-   public void setOpisTezave(String opisTezave) {
+   public void setOpisTezave(String opisTezave) {  // zapisTerapije
       this.opisTezave = opisTezave;
    }
 
@@ -43,12 +43,6 @@ public class Terapija {
 
    public void setPredpisanoZdravljenje(String predpisanoZdravljenje) {
       this.predpisanoZdravljenje = predpisanoZdravljenje;
-   }
-
-   /** @pdOid eb216218-96c8-4ce9-8530-fbe42dadc6d2 */
-   public int zapisTerapije(int idPacienta, String opis) {
-      // TODO: implement
-      return 0;
    }
    
    /** @pdOid 9f7e047f-941f-4e67-927b-46194be4ac46 */

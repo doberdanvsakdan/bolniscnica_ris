@@ -68,11 +68,17 @@
                  <Font name="DIN Alternate Bold" size="13.0" />
              </font>
             </Button>
-             <Button fx:id="odpustiBttn" layoutX="416.0" layoutY="410.0" mnemonicParsing="false" onAction="#vnosTerapijeZOdpustnicoCB" prefHeight="30.0" prefWidth="70.0" text="Odpusti" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="114.0" >
+             <Button fx:id="odpustiBttn" layoutX="416.0" layoutY="410.0" mnemonicParsing="false" onAction="#vnosTerapijeZOdpustnicoCB" prefHeight="30.0" prefWidth="70.0" text="Odpusti" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="114.0">
                  <font>
                      <Font name="DIN Alternate Bold" size="13.0" />
                  </font>
              </Button>
+            <TextField fx:id="idField" alignment="CENTER" layoutX="26.0" layoutY="411.0" prefHeight="30.0" prefWidth="35.0" promptText="ID" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="24.0" />
+             <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="416.0" prefHeight="30.0" prefWidth="330.0" textAlignment="CENTER" textFill="RED" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="200.0">
+                 <font>
+                     <Font name="DIN Alternate Bold" size="13.0" />
+                 </font>
+             </Label>
          </children>
       </AnchorPane>
    </center>
