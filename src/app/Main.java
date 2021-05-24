@@ -20,7 +20,7 @@ public class Main extends Application {
         stg.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("loginUI.fxml")));
         stg.setTitle("Bolnišnica Boleče nogice");
-        stg.setScene(new Scene(root, 600, 480));
+        stg.setScene(new Scene(root, 720, 576));
         stg.show();
     }
 

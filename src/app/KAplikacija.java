@@ -31,13 +31,24 @@ public class KAplikacija {
       kartoteke = new ArrayList<>();
       stPacientov = 0;
 
-      registracija("Marija", "Cvetka", "1805971505463", "Celovška cesta 88, 1000 Ljubljana", "031234657");
-      registracija("Joze", "Stefan", "1204970500564", "Slovenska cesta 3, 1000 Ljubljana", "040123456");
-      registracija("Marjan", "Novak", "0606963500231", "Gospodska cesta 18, 3223 Šmarje pri Jelšah", "040284426");
-      registracija("Tončka", "Oblak", "2911966505659", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Silvester", "Nabone", "1805971505463", "Celovška cesta 88, 1000 Ljubljana", "031234657");
+      registracija("Rodoljub", "Krekson", "1204970500564", "Slovenska cesta 3, 1000 Ljubljana", "040123456");
+      registracija("Boromir", "Pritlikavi", "0606963500231", "Gospodska cesta 18, 3223 Šmarje pri Jelšah", "040284426");
+      registracija("Gazmend", "Spredikaka", "2911366505659", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Žeton", "Mešabeton", "2911966505659", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Leonardo", "Da Škrinci", "2911166505659", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Petardo", "Maruti", "2911936505659", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Tine", "Rine", "2911966555656", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Kruhmed", "Paštetović", "2911966555619", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Ante", "Kitegledaizkante", "2911966555459", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Alem", "Papež", "2411966555639", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Nande", "Noj", "2311966555639", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Tastr", "Obermajer", "2311946555639", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Sinan", "Svalkič", "2311946555639", "Ulica zamorcev 11, 4000 Koper", "040285693");
+      registracija("Ivo", "Lepsjevzivo", "2311446555639", "Ulica zamorcev 11, 4000 Koper", "040285693");
 
       addTerapija(new Terapija(0,0, """
-         Cvetka preveč pije.
+         Silvester je brat od Staloneta in preveč pije.
          Glede na povedano ima zato velike težave.
          Sumimo da lahko povečano zaužitje pijač 
          negativno vpliva na njene gibalne sposobnosti.
@@ -47,9 +58,10 @@ public class KAplikacija {
          Kontrolni pregled čez 1 teden, 
          v primeru poslabšanja pa takoj."""));
       addTerapija(new Terapija(1,1, """
-              Jože prišel na pregled, 
+              Rodoljub prišel na pregled, 
               zaradi bolečin v kolenu v višini 8.3.
-              Konstantno se pritočuje nad bolečino.
+              Konstantno se pritočuje nad bolečino 
+              in to zmanšuje s krekom.
               Mobilna naprava zaznava koračno 
               asimetrijo v vrednosti 77,3%.
               Po eksterni akutni travmi 
@@ -76,7 +88,7 @@ public class KAplikacija {
               Pacientu je bila tudi predana 
               zloženka z natančnejšimi navodili"""));
       addTerapija(new Terapija(2,1, """
-              Marjan je bil sprejet v sredo, 
+              Boromir je bil sprejet v sredo, 
               z močno bolečino na desnem kolenu
               Zunanji pregled BP
               Na dotik se odzove z jamranjem 
@@ -84,26 +96,26 @@ public class KAplikacija {
               Desno oko se nekako čudno pokrči, 
               medtem ko levo hitro migeta""",
               """
-              Z Marjanom ni nič narobe. 
+              Z Boromirjem ni nič narobe. 
               Predvidevam da je samo hipohonder
               Vseeno ga bomo zadržali na opazovanju
               Bla bla bla
               He he, cena go brrr
               Trala la, Trala li, 
-              Marjana kolen' boli
+              Borčija kolen' boli
               Mogoče dans, mogoč' te dni, 
               plačilo preveliko ni.
               Če uč do torka se ne pozdrav,
               na račun oftalmolog se bo dodal ;)"""));
       addTerapija(new Terapija(3,0, """
-              Tončko pa kolen boli,
+              Bumbarja kolen boli,
               jumpajda, jumpajdi,
               samo stoka nič ne spi,
               jumpajdijadi.
               
               Ko koleno se pozdrav,
               jumpajdi, jumpajda,
-              račun se velik bo ji dal,
+              račun se velik bo mu dal,
               jumpajdi o dal.
               """,
               """
@@ -118,6 +130,18 @@ public class KAplikacija {
       kartoteke.add(new KartotekaPacienta(1,1));
       kartoteke.add(new KartotekaPacienta(2,2));
       kartoteke.add(new KartotekaPacienta(3,3));
+      kartoteke.add(new KartotekaPacienta(4,3));
+      kartoteke.add(new KartotekaPacienta(5,3));
+      kartoteke.add(new KartotekaPacienta(6,3));
+      kartoteke.add(new KartotekaPacienta(7,3));
+      kartoteke.add(new KartotekaPacienta(8,3));
+      kartoteke.add(new KartotekaPacienta(9,3));
+      kartoteke.add(new KartotekaPacienta(10,3));
+      kartoteke.add(new KartotekaPacienta(11,3));
+      kartoteke.add(new KartotekaPacienta(12,3));
+      kartoteke.add(new KartotekaPacienta(13,3));
+      kartoteke.add(new KartotekaPacienta(14,3));
+      kartoteke.add(new KartotekaPacienta(15,3));
    }
 
    public KartotekaPacienta dobiKartoteko(int idPacienta){
