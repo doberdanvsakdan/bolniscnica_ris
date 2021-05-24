@@ -26,7 +26,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Pomoč">
             <items>
-              <MenuItem mnemonicParsing="false" text="O podjetju" />
+              <MenuItem mnemonicParsing="false" onAction="#helpCB" text="O podjetju" />
             </items>
           </Menu>
         </menus>

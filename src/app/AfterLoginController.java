@@ -90,6 +90,7 @@ public class AfterLoginController implements Initializable {
         saveCB(new ActionEvent());
 
         if(idField.getText().equals("")) {
+            statusLabel.setTextFill(Color.web("#ff0000"));
             statusLabel.setText("Vpiši ID specialista");
             return;
         }
@@ -125,5 +126,10 @@ public class AfterLoginController implements Initializable {
         }
 
 
+    }
+
+    public void helpCB(ActionEvent actionEvent) {
+        statusLabel.setTextFill(Color.web("#4ec1b5"));
+        statusLabel.setText("Ni jim pomoči");
     }
 }
